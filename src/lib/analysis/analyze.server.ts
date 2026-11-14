@@ -34,7 +34,7 @@ export async function runResumeAnalysis(
   input: { jobDescription: string; resume: string },
   abortSignal?: AbortSignal,
 ): Promise<AnalysisResponse> {
-  const apiKey = process.env.LOVABLE_API_KEY;
+  const apiKey = process.env['LOVABLE_API_KEY'];
   if (!apiKey) {
     console.error("[analysis] LOVABLE_API_KEY is not configured");
     return { ok: false, message: "O serviço de análise não está configurado." };
@@ -58,7 +58,7 @@ export async function runResumeAnalysis(
         schema: jsonSchema<RawAnalysis>(ANALYSIS_SCHEMA as unknown as JSONSchema7),
         name: "analise_curriculo",
       }),
-      abortSignal,
+      ...(abortSignal ? { abortSignal } : {}),
       onError: ({ error }) => {
         streamError = error;
       },

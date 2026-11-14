@@ -69,20 +69,21 @@ export async function downloadResumePdf(text: string, filename = "curriculo-otim
   const lines = content.split("\n");
   let i = 0;
   // Name
-  while (i < lines.length && !lines[i].trim()) i++;
+  const at = (n: number) => lines[n] ?? "";
+  while (i < lines.length && !at(i).trim()) i++;
   if (i < lines.length) {
-    write(lines[i].trim(), { size: 18, bold: true, color: [23, 59, 87], lh: 24 });
+    write(at(i).trim(), { size: 18, bold: true, color: [23, 59, 87], lh: 24 });
     i++;
   }
   // Contact lines until blank line or heading
-  while (i < lines.length && lines[i].trim() && !isHeading(lines[i])) {
-    write(lines[i].trim(), { size: 10, color: [85, 95, 110] });
+  while (i < lines.length && at(i).trim() && !isHeading(at(i))) {
+    write(at(i).trim(), { size: 10, color: [85, 95, 110] });
     i++;
   }
   y += 6;
 
   for (; i < lines.length; i++) {
-    const raw = lines[i];
+    const raw = at(i);
     const line = raw.trim();
     if (!line) {
       y += 5;
