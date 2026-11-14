@@ -45,8 +45,8 @@ export type AnalysisResponse =
   | { ok: false; message: string };
 
 export interface FieldErrors {
-  jobDescription?: string;
-  resume?: string;
+  jobDescription?: string | undefined;
+  resume?: string | undefined;
 }
 
 function validateField(value: string, emptyMsg: string, shortMsg: string): string | undefined {
