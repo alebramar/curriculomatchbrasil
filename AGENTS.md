@@ -28,3 +28,10 @@ use the editor.
   own key and store it in Secrets.
 - **Secrets.** Lovable manages them. Do not put secret values in the repo.
 <!-- LOVABLE:END -->
+
+## Project rules
+
+- AI analysis runs in one server function (`src/lib/analysis.functions.ts` → `analysis/analyze.server.ts`) with a strict JSON schema; keeps the gateway key server-side and one call per analysis.
+- The compatibility score is computed in code from the AI's requirement list (`src/lib/analysis/core.ts`), not taken from the model; keeps it explainable and testable.
+- Optimized resume is plain text with UPPERCASE section headings and "- " bullets; the browser PDF exporter (`src/lib/resume-pdf.ts`, jsPDF) parses that convention, so prompt and exporter must change together.
+- No persistence anywhere: analysis state lives only in React state.
