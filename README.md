@@ -1,26 +1,21 @@
-# Curriculomatchbrasil
+# CurrículoMatch
 
-Implement exactly the screenshot and nothing else
+Aplicação web que utiliza inteligência artificial para analisar a compatibilidade entre currículos e vagas de emprego, ajudando candidatos a melhorar seus currículos para sistemas de triagem automatizada (ATS).
 
-This project was built with [Lovable](https://lovable.dev).
+## 1. Funcionalidades
 
-**Live app**: https://curriculomatchbrasil.lovable.app
+- Análise de compatibilidade entre currículo e vaga.
+- Identificação de palavras-chave encontradas e ausentes.
+- Sugestões de melhoria.
+- Geração de currículo otimizado para a vaga.
+- Edição e exportação do currículo em PDF.
 
-## Build with Lovable
+## 2. Como funciona
 
-Continue developing this project in the [Lovable editor](https://lovable.dev/projects/14e929c7-c215-438b-a0a3-914ce25e7e0e).
+O usuário cola a descrição da vaga e o conteúdo do currículo. A inteligência artificial compara os requisitos da oportunidade com as qualificações apresentadas.
 
-- **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: every change made in Lovable is committed straight to this repository.
-- **Full ownership**: this code is yours. Push to `main` on GitHub and your changes sync back into Lovable, ready for your next prompt.
+A aplicação apresenta um índice estimado de compatibilidade, palavras-chave, sugestões e uma versão otimizada do currículo.
 
-## Development
+O índice considera os requisitos essenciais com peso dobrado em relação aos desejáveis.
 
-Prefer working locally? You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
-
-```sh
-git clone <this-repository-url>
-cd <repository-name>
-npm i
-npm run dev
-```
+**Regra fundamental:** a aplicação não deve inventar experiências, habilidades, formação ou qualificações. Requisitos não comprovados são apresentados
