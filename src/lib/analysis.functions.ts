@@ -5,7 +5,7 @@ import { hasFieldErrors, validateInputs, type AnalysisResponse } from "@/lib/ana
 import { runResumeAnalysis } from "@/lib/analysis/analyze.server";
 
 export const analyzeResume = createServerFn({ method: "POST" })
-  .inputValidator((input: unknown) => {
+  .validator((input: unknown) => {
     const data = (input ?? {}) as { jobDescription?: unknown; resume?: unknown };
     if (typeof data.jobDescription !== "string" || typeof data.resume !== "string") {
       throw new Error("Dados inválidos.");
